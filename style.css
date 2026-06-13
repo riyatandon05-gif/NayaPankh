@@ -1,0 +1,333 @@
+/* --- Core Dark Mode (Default Theme Setup) --- */
+body[data-theme="dark"] {
+    --bg-base: #121212;
+    --bg-surface: #1e1e1e;
+    --bg-card: #262626;
+    --text-core: #ffffff;
+    --text-secondary: #b3b3b3;
+    --brand-accent: #ff4757;
+    --brand-accent-glow: rgba(255, 71, 87, 0.25);
+    --border-ui: rgba(255, 255, 255, 0.08);
+    --navbar-blur: rgba(18, 18, 18, 0.96);
+}
+
+/* --- Pure Light Mode Overwrite Style rules --- */
+body[data-theme="light"] {
+    --bg-base: #f5f7fa;
+    --bg-surface: #ffffff;
+    --bg-card: #eaedf3;
+    --text-core: #1e272e;
+    --text-secondary: #57606f;
+    --brand-accent: #ff4757;
+    --brand-accent-glow: rgba(255, 71, 87, 0.15);
+    --border-ui: rgba(0, 0, 0, 0.1);
+    --navbar-blur: rgba(255, 255, 255, 0.96);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Dynamically hooks standard properties to body tag properties */
+body {
+    background-color: var(--bg-base) !important;
+    color: var(--text-core) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* --- Navigation System Layout --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--navbar-blur);
+    border-bottom: 1px solid var(--border-ui);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 5%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    color: var(--text-core);
+}
+
+.logo-subtitle {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--brand-accent);
+    font-weight: 700;
+    margin-top: -2px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-core);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.theme-btn:hover {
+    background: var(--border-ui);
+}
+
+/* --- Mobile Menu Link Dropdowns --- */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-ui);
+    padding: 20px 5%;
+    gap: 14px;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-core);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 14px;
+    border-radius: 8px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--brand-accent);
+    background: var(--border-ui);
+}
+
+.btn-nav-donate {
+    text-decoration: none;
+    background: var(--brand-accent);
+    color: white !important;
+    text-align: center;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* --- Sections & Structural Elements layout --- */
+.hero-section {
+    padding: 160px 20px 90px 20px;
+    background: linear-gradient(145deg, var(--brand-accent-glow) 0%, transparent 60%), var(--bg-surface);
+    text-align: center;
+    border-bottom: 1px solid var(--border-ui);
+    transition: background-color 0.3s;
+}
+
+.hero-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.gov-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--brand-accent);
+    background: var(--brand-accent-glow);
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 24px;
+    border: 1px solid var(--brand-accent);
+}
+
+.hero-section h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.hero-section h1 .color-text {
+    color: var(--brand-accent);
+}
+
+.hero-section p {
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-primary-cta {
+    background: var(--brand-accent);
+    color: white;
+}
+
+/* --- Section Headings System --- */
+.heading-wrapper {
+    margin-bottom: 35px;
+}
+
+.subheading {
+    font-size: 0.8rem;
+    color: var(--brand-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.heading-wrapper h2 {
+    font-size: 1.85rem;
+    font-weight: 800;
+}
+
+.decorator-line {
+    width: 50px;
+    height: 4px;
+    background: var(--brand-accent);
+    margin-top: 12px;
+}
+
+/* --- Global Section Block Cards Layout --- */
+.about-card {
+    background: var(--bg-surface);
+    padding: 30px;
+    border-radius: 14px;
+    border-left: 4px solid var(--brand-accent);
+    border-top: 1px solid var(--border-ui);
+    border-right: 1px solid var(--border-ui);
+    border-bottom: 1px solid var(--border-ui);
+    transition: background-color 0.3s;
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.cards-layout-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.status-card {
+    background: var(--bg-surface);
+    padding: 35px 30px;
+    border-radius: 14px;
+    border: 1px solid var(--border-ui);
+    transition: background-color 0.3s;
+}
+
+.icon-holder {
+    font-size: 2.4rem;
+    color: var(--brand-accent);
+    margin-bottom: 18px;
+}
+
+.status-card p {
+    color: var(--text-secondary);
+}
+
+.donation-pitch-section {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-ui);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.pitch-box p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+footer {
+    background: var(--bg-base);
+    border-top: 1px solid var(--border-ui);
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p {
+    color: var(--text-secondary);
+}
+
+/* --- Hamburger Trigger --- */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 24px;
+    height: 2.5px;
+    background-color: var(--text-core);
+    transition: 0.3s;
+}
+
+/* Responsive Desktop view styles matrix */
+@media (min-width: 768px) {
+    .hamburger { display: none; }
+    .nav-menu { display: flex; flex-direction: row; background: transparent; padding: 0; border: none; gap: 24px; align-items: center; }
+    .navbar { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 0 6%; height: 80px; }
+    .hero-section h1 { font-size: 3.5rem; }
+    .cards-layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+}
